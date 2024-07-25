@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="EnergyReport.WPF.UserControls.InputContract"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EnergyReport.WPF.UserControls" 
+             xmlns:dc="clr-namespace:EnergyReport.ViewModel;assembly=EnergyReport.ViewModel"
+             mc:Ignorable="d" Height="601" Width="1608">
+    <UserControl.DataContext>
+        <dc:ContractViewModle/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <TextBox x:Name="ContractNumber" HorizontalAlignment="Left" Margin="401,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="27"  Text="{Binding ContractNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="CounterNumber" HorizontalAlignment="Left" Margin="401,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="27" Text="{Binding CounterNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Vertragsnummer " HorizontalAlignment="Left" Height="27" Margin="179,84,0,0" VerticalAlignment="Top" Width="182"/>
+        <Label Content="Gültig von" HorizontalAlignment="Left" Height="27" Margin="179,156,0,0" VerticalAlignment="Top" Width="182"/>
+        <Label Content="Gültig bis" HorizontalAlignment="Left" Height="27" Margin="179,224,0,0" VerticalAlignment="Top" Width="182"/>
+        <Label Content="ZählerNr." HorizontalAlignment="Left" Height="27" Margin="179,315,0,0" VerticalAlignment="Top" Width="182"/>
+        <Label Content="Vertrag" HorizontalAlignment="Left" Height="48" Margin="197,10,0,0" VerticalAlignment="Top" Width="372" FontSize="20"/>
+        <Button x:Name="input" Content="Eingaben" HorizontalAlignment="Left" Height="41" Margin="231,528,0,0" VerticalAlignment="Top" Width="338" Command="{Binding SubmitCommand}"  />
+        <Label Content="Liegenschaft:" HorizontalAlignment="Left" Height="27" Margin="179,393,0,0" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="CounterNumber_Copy" HorizontalAlignment="Left" Margin="401,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="27" Text="{Binding CounterNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="REitems" HorizontalAlignment="Left" Height="27" Margin="402,391,0,0" VerticalAlignment="Top" Width="177" ItemsSource="{Binding RealstateItems}" SelectedItem="{Binding RecId, Mode=TwoWay}" SelectionChanged="REitems_SelectionChanged" />
+        <Label Content="Enum type" HorizontalAlignment="Left" Height="27" Margin="179,464,0,0" VerticalAlignment="Top" Width="182" />
+        <ComboBox x:Name="Enumitems" HorizontalAlignment="Left" Height="27" Margin="402,462,0,0" VerticalAlignment="Top" Width="177" ItemsSource="{Binding Enums}" SelectedItem="{Binding TpyId, Mode=TwoWay}" SelectionChanged="Enumitems_SelectionChanged"/>
+        <DatePicker x:Name="DatePickerFrom" HorizontalAlignment="Left" Height="26" Margin="402,166,0,0" VerticalAlignment="Top" Width="177" SelectedDate="{Binding ValidFrom, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker x:Name="DatePickerOn" HorizontalAlignment="Left" Height="33" Margin="402,224,0,0" VerticalAlignment="Top" Width="177" SelectedDate="{Binding ExpiresOn, UpdateSourceTrigger=PropertyChanged}"/>
+        <DataGrid x:Name="RealestateOutput" HorizontalAlignment="Left" Height="386" Margin="840,54,0,0" VerticalAlignment="Top" Width="643" ItemsSource="{Binding ContractItems}">
+        </DataGrid>
+
+    </Grid>
+</UserControl>

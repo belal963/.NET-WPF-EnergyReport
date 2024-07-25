@@ -1,0 +1,18 @@
+﻿<Window x:Class="EnergyReport.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnergyReport.WPF" 
+        xmlns:usercontrols="clr-namespace:EnergyReport.WPF.UserControls"
+        mc:Ignorable="d"
+         Title="MainWindow" Height="883" Width="1518">
+    <Grid>
+        <Button Content="Liegenschaft" HorizontalAlignment="Left" Height="31" Margin="34,18,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click_Show_RealEstate"/>
+        <Button Content="Vertag" HorizontalAlignment="Left" Height="31" Margin="191,18,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click_Show_Contract"/>
+        <Button Content="Ablesung" HorizontalAlignment="Left" Height="31" Margin="356,18,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click_Show_Reading"/>
+        <Button Content="Tarif" HorizontalAlignment="Left" Height="31" Margin="513,18,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click_Show_Tariff" />
+        <Button Content="Livecharts" HorizontalAlignment="Left" Height="31" Margin="687,18,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click_Show_LiveCharts"/>
+        <Grid x:Name="RootControl"></Grid>
+    </Grid>
+</Window>

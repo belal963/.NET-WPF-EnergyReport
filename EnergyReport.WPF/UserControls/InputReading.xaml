@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="EnergyReport.WPF.UserControls.InputReading"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EnergyReport.WPF.UserControls" 
+             xmlns:dc="clr-namespace:EnergyReport.ViewModel;assembly=EnergyReport.ViewModel"
+             mc:Ignorable="d" Height="543" Width="1481" >
+    <UserControl.DataContext>
+        <dc:ReadingViewModle/>
+    </UserControl.DataContext>
+    <Grid>
+        <Label Content="Ablesung  " HorizontalAlignment="Left" Height="77" Margin="199,10,0,0" VerticalAlignment="Top" Width="344" FontSize="36"/>
+        <Label Content="AbleseDatum:" HorizontalAlignment="Left" Height="31" Margin="70,164,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label Content="Zähler HT:" HorizontalAlignment="Left" Height="31" Margin="70,243,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label Content="Zähler NT:" HorizontalAlignment="Left" Height="31" Margin="70,307,0,0" VerticalAlignment="Top" Width="118"/>
+        <TextBox x:Name="CounterHT" HorizontalAlignment="Left" Height="31" Margin="256,243,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="177" Text ="{Binding CounterHT, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="CounterNT" HorizontalAlignment="Left" Height="31" Margin="256,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"  Text="{Binding CounterNT, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Eingeben" HorizontalAlignment="Left" Height="44" Margin="120,388,0,0" VerticalAlignment="Top" Width="268" Command="{Binding SubmitCommand}"/>
+        <DatePicker x:Name="DatePickerReading" HorizontalAlignment="Left" Height="45" Margin="247,164,0,0" VerticalAlignment="Top" Width="194" SelectedDate="{Binding ReadingDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Vertrag Nummer:" HorizontalAlignment="Left" Height="31" Margin="70,93,0,0" VerticalAlignment="Top" Width="118"/>
+        <ComboBox x:Name="ContractCombobox" HorizontalAlignment="Left" Height="28" Margin="247,95,0,0" VerticalAlignment="Top" Width="194" ItemsSource="{Binding contracts}" SelectedItem="{Binding RecId,Mode=TwoWay}" SelectionChanged="ContractCombobox_SelectionChanged"/>
+        <DataGrid x:Name="ReadingDataGrid" HorizontalAlignment="Left" Height="386" Margin="741,66,0,0" VerticalAlignment="Top" Width="643" ItemsSource="{Binding ReadingItems}">
+        </DataGrid>
+    </Grid>
+</UserControl>
